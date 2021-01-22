@@ -1,9 +1,34 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
 template <typename T>
-void insertionSort(T d[],int N){
+void swap(T d[],int x,int y){
+    T temp = d[x];
+    d[x] = d[y];
+    d[y] = temp;
+}
 
+template <typename T>
+void insertionSort(T d[],int N){
+	int s=0;
+	for (int i = 1; i < N; i++){
+		cout << "Pass"<<i<<":";
+		for (int k = i; k > 0 ; k--){
+			if ( d[k] > d[k-1]){
+				swap(d,k,k-1);
+				
+			}
+		}
+			for (int j = 0; j < N; j++){
+			if ( d[j] == s && j<i+1 && d[j+1] != s){
+				cout << d[j] << " ";
+			}else{
+				cout << d[j] << " " ;
+			}
+		}
+		cout << "\n";
+	}
 }
 
 int main(){
